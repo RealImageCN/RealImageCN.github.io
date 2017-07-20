@@ -4,6 +4,10 @@
   "version": "0.1.0",
   "homepage": "https://www.realimage.com.cn",
   "author": "Derek Hsu",
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE"
+  },
   "devDependencies": {
     "bootstrap": "^3.3.7",
     "browser-sync": "^2.13.0",
@@ -11,8 +15,8 @@
     "gulp": "^3.9.1",
     "gulp-clean-css": "^2.0.10",
     "gulp-header": "^1.8.7",
-    "gulp-less": "^3.1.0",
     "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
     "gulp-uglify": "^1.5.4",
     "jquery": "^1.11.3"
   },

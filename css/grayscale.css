@@ -6,9 +6,10 @@
 body {
   width: 100%;
   height: 100%;
-  font-family: "Lora","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   color: white;
-  background-color: black; }
+  background-color: #000000;
+  font-weight: 200; }
 
 html {
   width: 100%;
@@ -22,19 +23,25 @@ h5,
 h6 {
   margin: 0 0 35px;
   text-transform: uppercase;
-  font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-weight: 700;
+  font-family: "Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 200;
   letter-spacing: 1px; }
 
 p {
   margin: 0 0 25px;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 1.5; }
   @media (min-width: 768px) {
     p {
+      font-size: 16px; } }
+  @media (min-width: 992px) {
+    p {
       margin: 0 0 35px;
-      font-size: 20px;
+      font-size: 18px;
       line-height: 1.6; } }
+  @media (min-width: 1200px) {
+    p {
+      font-size: 18px; } }
 
 a {
   color: #42DCA3;
@@ -46,14 +53,17 @@ a {
     color: #1d9b6c; }
 
 .light {
-  font-weight: 400; }
+  font-weight: 200; }
+
+.accent {
+  color: #42DCA3; }
 
 .navbar-custom {
   margin-bottom: 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   text-transform: uppercase;
   font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
-  background-color: black; }
+  background-color: #000000; }
   .navbar-custom .navbar-toggle {
     padding: 4px 6px;
     font-size: 16px;
@@ -61,7 +71,13 @@ a {
     .navbar-custom .navbar-toggle:focus, .navbar-custom .navbar-toggle:active {
       outline: none; }
   .navbar-custom .navbar-brand {
+    white-space: nowrap;
     font-weight: 700; }
+    .navbar-custom .navbar-brand img {
+      height: 20px;
+      display: inline;
+      margin-top: -7px;
+      margin-right: 10px; }
     .navbar-custom .navbar-brand:focus {
       outline: none; }
   .navbar-custom a {
@@ -101,11 +117,15 @@ a {
   display: table;
   width: 100%;
   height: auto;
+  min-height: 600px;
   padding: 100px 0;
   text-align: center;
   color: white;
-  background: url(../img/intro-bg.jpg) no-repeat bottom center scroll;
+  background-image: url(../img/Banner.jpg);
   background-color: black;
+  background-position: 20% center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
@@ -114,17 +134,31 @@ a {
     display: table-cell;
     vertical-align: middle; }
     .intro .intro-body .brand-heading {
-      font-size: 40px; }
+      font-size: 40px;
+      font-weight: 100; }
+      .intro .intro-body .brand-heading .accent {
+        font-weight: 200; }
+      @media (min-width: 768px) {
+        .intro .intro-body .brand-heading {
+          font-size: 60px; } }
+      @media (min-width: 992px) {
+        .intro .intro-body .brand-heading {
+          font-size: 70px; } }
+      @media (min-width: 1200px) {
+        .intro .intro-body .brand-heading {
+          font-size: 80px; } }
     .intro .intro-body .intro-text {
-      font-size: 18px; }
+      font-size: 16px; }
+      @media (min-width: 768px) {
+        .intro .intro-body .intro-text {
+          font-size: 18px; } }
+      @media (min-width: 992px) {
+        .intro .intro-body .intro-text {
+          font-size: 20px; } }
   @media (min-width: 768px) {
     .intro {
       height: 100%;
-      padding: 0; }
-      .intro .intro-body .brand-heading {
-        font-size: 100px; }
-      .intro .intro-body .intro-text {
-        font-size: 26px; } }
+      padding: 0; } }
 
 .btn-circle {
   width: 70px;
@@ -182,31 +216,74 @@ a {
 
 .content-section {
   padding-top: 100px; }
+  @media (min-width: 992px) {
+    .content-section {
+      padding-top: 150px; } }
+  .content-section .section-title {
+    font-size: 30px;
+    font-weight: 100; }
+    .content-section .section-title .accent {
+      font-weight: 200; }
+    @media (min-width: 992px) {
+      .content-section .section-title {
+        font-size: 35px; } }
+    @media (min-width: 1200px) {
+      .content-section .section-title {
+        font-size: 40px; } }
+  @media (min-width: 992px) {
+    .content-section .section-body {
+      font-size: 16px; } }
+  .content-section.secondary {
+    background-color: #222222; }
 
-.download-section {
+.application-section {
   width: 100%;
+  min-height: 300px;
   padding: 50px 0;
   color: white;
-  background: url(../img/downloads-bg.jpg) no-repeat center center scroll;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: scroll;
   background-color: black;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
-  -o-background-size: cover; }
+  -o-background-size: cover;
+  position: relative;
+  display: table; }
+  .application-section .backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); }
+  @media (min-width: 768px) {
+    .application-section {
+      min-height: 400px; } }
+  @media (min-width: 992px) {
+    .application-section {
+      min-height: 550px;
+      padding: 100px 0; } }
+  @media (min-width: 1200px) {
+    .application-section {
+      min-height: 700px; } }
+  .application-section .application-section-inner {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%; }
 
-#map {
-  width: 100%;
-  height: 200px;
-  margin-top: 100px; }
+.edu-section {
+  background-image: url(../img/education.jpg); }
 
-@media (min-width: 767px) {
-  .content-section {
-    padding-top: 250px; }
-  .download-section {
-    padding: 100px 0; }
-  #map {
-    height: 400px;
-    margin-top: 250px; } }
+.design-section {
+  background-image: url(../img/design.jpg); }
+
+.ent-section {
+  background-image: url(../img/entertainment.jpg); }
+
+.mail {
+  letter-spacing: 0.1em; }
 
 .btn {
   text-transform: uppercase;
@@ -224,7 +301,7 @@ a {
   .btn-default:hover, .btn-default:focus {
     border: 1px solid #42DCA3;
     outline: none;
-    color: black;
+    color: #000000;
     background-color: #42DCA3; }
 
 ul.banner-social-buttons {
@@ -241,9 +318,11 @@ ul.banner-social-buttons {
         margin-bottom: 0; } }
 
 footer {
-  padding: 50px 0; }
+  padding: 50px 0;
+  color: #949494; }
   footer p {
-    margin: 0; }
+    margin: 0;
+    font-size: 14px; }
 
 ::-moz-selection {
   text-shadow: none;

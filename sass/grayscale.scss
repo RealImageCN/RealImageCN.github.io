@@ -4,9 +4,10 @@
 body {
     width: 100%;
     height: 100%;
-    font-family: "Lora","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     color: white;
-    background-color: black;
+    background-color: $background;
+    font-weight: 200;
 }
 
 html {
@@ -22,19 +23,25 @@ h5,
 h6 {
     margin: 0 0 35px;
     text-transform: uppercase;
-    font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 700;
+    font-family: "Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 200;
     letter-spacing: 1px;
 }
 
 p {
     margin: 0 0 25px;
-    font-size: 18px;
+    font-size: 14px;
     line-height: 1.5;
-    @media(min-width:768px) {
+    @media (min-width:$width-small) {
+        font-size: 16px;
+    }
+    @media(min-width:$width-medium) {
         margin: 0 0 35px;
-        font-size: 20px;
+        font-size: 18px;
         line-height: 1.6;
+    }
+    @media (min-width: $width-large) {
+        font-size: 18px;
     }
 }
 
@@ -51,7 +58,11 @@ a {
 }
 
 .light {
-    font-weight: 400;
+    font-weight: 200;
+}
+
+.accent {
+    color: $primary;
 }
 
 .navbar-custom {
@@ -59,7 +70,7 @@ a {
     border-bottom: 1px solid rgba(white, 0.3);
     text-transform: uppercase;
     font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
-    background-color: black;
+    background-color: $background;
     .navbar-toggle {
         padding: 4px 6px;
         font-size: 16px;
@@ -70,6 +81,13 @@ a {
         }
     }
     .navbar-brand {
+        img {
+            height: 20px;
+            display: inline;
+            margin-top: -7px;
+            margin-right: 10px;
+        }
+        white-space: nowrap;
         font-weight: 700;
         &:focus {
             outline: none;
@@ -106,7 +124,7 @@ a {
             }
         }
     }
-    @media(min-width:768px) {
+    @media(min-width:$width-small) {
         padding: 20px 0;
         border-bottom: none;
         letter-spacing: 1px;
@@ -126,11 +144,15 @@ a {
     display: table;
     width: 100%;
     height: auto;
+    min-height: 600px;
     padding: 100px 0;
     text-align: center;
     color: white;
-    background: url(../img/intro-bg.jpg) no-repeat bottom center scroll;
+    background-image: url(../img/Banner.jpg);
     background-color: black;
+    background-position: 20% center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -140,22 +162,33 @@ a {
         vertical-align: middle;
         .brand-heading {
             font-size: 40px;
+            font-weight: 100;
+            .accent {
+                font-weight: 200;
+            }
+            @media(min-width:$width-small) {
+                font-size: 60px;
+            }
+            @media(min-width:$width-medium) {
+                font-size: 70px;
+            }
+            @media(min-width:$width-large) {
+                font-size: 80px;
+            }
         }
         .intro-text {
-            font-size: 18px;
+            font-size: 16px;
+            @media(min-width:$width-small) {
+                font-size: 18px;
+            }
+            @media(min-width:$width-medium) {
+                font-size: 20px;
+            }
         }
     }
-    @media(min-width:768px) {
+    @media(min-width:$width-small) {
         height: 100%;
         padding: 0;
-        .intro-body {
-            .brand-heading {
-                font-size: 100px;
-            }
-            .intro-text {
-                font-size: 26px;
-            }
-        }
     }
 }
 
@@ -234,39 +267,87 @@ a {
 
 .content-section {
     padding-top: 100px;
+
+    @media(min-width:$width-medium) {
+        padding-top: 150px;
+    }
+
+    .section-title {
+        font-size: 30px;
+        font-weight: 100;
+        .accent {
+            font-weight: 200;
+        }
+        @media(min-width:$width-medium) {
+            font-size: 35px;
+        }
+        @media(min-width:$width-large) {
+            font-size: 40px;
+        }
+    }
+    .section-body {
+        @media(min-width:$width-medium) {
+            font-size: 16px;
+        }
+    }
+
+    &.secondary {
+        background-color: $gray-dark;
+    }
 }
 
-.download-section {
+.application-section {
     width: 100%;
+    min-height: 300px;
     padding: 50px 0;
     color: white;
-    background: url(../img/downloads-bg.jpg) no-repeat center center scroll;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: scroll;
     background-color: black;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
-}
-
-#map {
-    width: 100%;
-    height: 200px;
-    margin-top: 100px;
-}
-
-@media(min-width:767px) {
-    .content-section {
-        padding-top: 250px;
+    position: relative;
+    display: table;
+    .backdrop {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.5);
     }
-
-    .download-section {
+    @media(min-width:$width-small) {
+        min-height: 400px;
+    }
+    @media(min-width:$width-medium) {
+        min-height: 550px;
         padding: 100px 0;
     }
-
-    #map {
-        height: 400px;
-        margin-top: 250px;
+    @media(min-width:$width-large) {
+        min-height: 700px;
     }
+
+    .application-section-inner {
+        display: table-cell;
+        vertical-align: middle;
+        width: 100%;
+    }
+}
+.edu-section {
+    background-image: url(../img/education.jpg);
+}
+.design-section {
+    background-image: url(../img/design.jpg);
+}
+.ent-section {
+    background-image: url(../img/entertainment.jpg);
+}
+
+.mail {
+    letter-spacing: 0.1em;
 }
 
 .btn {
@@ -287,17 +368,17 @@ a {
     &:focus {
         border: 1px solid $primary;
         outline: none;
-        color: black;
+        color: $background;
         background-color: $primary;
     }
 }
 
 ul.banner-social-buttons {
     margin-top: 0;
-    @media(max-width:1199px) {
+    @media(max-width:$width-large - 1px) {
         margin-top: 15px;
     }
-    @media(max-width:767px) {
+    @media(max-width:$width-small - 1px) {
         li {
             display: block;
             margin-bottom: 20px;
@@ -311,8 +392,10 @@ ul.banner-social-buttons {
 
 footer {
     padding: 50px 0;
+    color: $gray-medium;
     p {
         margin: 0;
+        font-size: 14px;
     }
 }
 
